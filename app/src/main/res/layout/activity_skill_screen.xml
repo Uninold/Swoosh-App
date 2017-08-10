@@ -108,6 +108,7 @@
         android:layout_marginRight="16dp"
         android:background="@drawable/border_style"
         android:alpha="0.3"
+        android:enabled="false"
         android:textAllCaps="true"
         />
 

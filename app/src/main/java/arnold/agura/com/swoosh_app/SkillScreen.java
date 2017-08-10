@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import static android.R.attr.data;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class SkillScreen extends AppCompatActivity {
@@ -61,10 +62,14 @@ public class SkillScreen extends AppCompatActivity {
         mFinishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String iAm = mBeginnerBtn.getText().toString();
+                String iAm = "";
+                if(mBeginnerBtn.getAlpha()==1f) {
+                     iAm = mBeginnerBtn.getText().toString();
+                }
+                else if(mBallerBtn.getAlpha()==1f) {
+                     iAm = mBallerBtn.getText().toString();
+                }
                 Intent data = new Intent();
-
                 data.putExtra(PASS_STRING, iAm);
                 setResult(Activity.RESULT_OK, data);
 
