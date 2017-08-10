@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/beginner_baller_bg"
+    tools:context="arnold.agura.com.swoosh_app.SkillScreen">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="28dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/swoosh_logo"
+        />
+    <TextView
+        android:id="@+id/iamatxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logo"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        android:text="@string/i_am_a"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="45dp"
+    android:layout_below="@+id/iamatxt"
+    android:orientation="horizontal">
+    <Button
+        android:id="@+id/beginner"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iamatxt"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="8dp"
+        android:textSize="15sp"
+        android:background="@drawable/border_style"
+        android:text="@string/beginner"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/baller"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/beginner"
+
+        android:layout_marginLeft="8dp"
+        android:textSize="15sp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/border_style"
+        android:text="@string/baller"
+        android:textAllCaps="false"/>
+
+</LinearLayout>
+    <Button
+        android:id="@+id/finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="13dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="15sp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/border_style"
+        android:alpha="0.4"
+        android:text="@string/finish"
+        android:textAllCaps="true" />
+</RelativeLayout>
