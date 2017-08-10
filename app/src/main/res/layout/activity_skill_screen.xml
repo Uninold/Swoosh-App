@@ -25,12 +25,41 @@
         android:layout_marginTop="15dp"
         android:textSize="15sp"
         android:text="@string/i_am_a"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/iamatxt"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/beginnerbg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iamatxt"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/bgColor" />
+        <Button
+            android:id="@+id/ballerbg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/beginnerbg"
+            android:layout_marginLeft="8dp"
+            android:textSize="15sp"
+            android:layout_marginRight="15dp"
+            android:background="@color/bgColor"/>
+
+    </LinearLayout>
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="45dp"
     android:layout_below="@+id/iamatxt"
     android:orientation="horizontal">
+
     <Button
         android:id="@+id/beginner"
         android:layout_width="0dp"
@@ -58,6 +87,16 @@
         android:textAllCaps="false"/>
 
 </LinearLayout>
+
+    <Button
+        android:id="@+id/finishbg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="13dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/bgColor" />
     <Button
         android:id="@+id/finish"
         android:layout_width="match_parent"
@@ -68,7 +107,8 @@
         android:textSize="15sp"
         android:layout_marginRight="16dp"
         android:background="@drawable/border_style"
-        android:alpha="0.4"
-        android:text="@string/finish"
-        android:textAllCaps="true" />
+        android:alpha="0.3"
+        android:textAllCaps="true"
+        />
+
 </RelativeLayout>
