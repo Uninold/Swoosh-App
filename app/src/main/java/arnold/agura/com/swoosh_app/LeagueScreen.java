@@ -41,7 +41,7 @@ public class LeagueScreen extends AppCompatActivity {
                    mNext.setAlpha(1f);
                    mNext.setEnabled(true);
                }
-               else{
+               else if(miAm.getText().toString().isEmpty()){
                    mMensBtn.setAlpha(1f);
                    mWomensBtn.setAlpha(1f);
                    mCo_edBtn.setAlpha(1f);
@@ -60,7 +60,7 @@ public class LeagueScreen extends AppCompatActivity {
                     mNext.setAlpha(1f);
                     mNext.setEnabled(true);
                 }
-                else{
+                else if(miAm.getText().toString().isEmpty()){
                     mMensBtn.setAlpha(1f);
                     mWomensBtn.setAlpha(1f);
                     mCo_edBtn.setAlpha(1f);
@@ -80,7 +80,7 @@ public class LeagueScreen extends AppCompatActivity {
                     mNext.setEnabled(true);
 
                 }
-                else{
+                else if(miAm.getText().toString().isEmpty()){
                     mMensBtn.setAlpha(1f);
                     mWomensBtn.setAlpha(1f);
                     mCo_edBtn.setAlpha(1f);
@@ -120,6 +120,12 @@ public class LeagueScreen extends AppCompatActivity {
                 miAm.setText(replyMsg);
                 mNextbg.setVisibility(View.GONE);
                 mNext.setVisibility(View.GONE);
+                if(mMensBtn.getAlpha()!=1f)
+                mMensBtn.setEnabled(false);
+                if(mWomensBtn.getAlpha()!=1f)
+                mWomensBtn.setEnabled(false);
+                if(mCo_edBtn.getAlpha()!=1f)
+                mCo_edBtn.setEnabled(false);
             }
         }
     }
