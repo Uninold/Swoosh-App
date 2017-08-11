@@ -9,31 +9,31 @@ import android.widget.Button;
 
 import static android.R.attr.data;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+import static android.support.v7.widget.AppCompatDrawableManager.get;
 
 public class SkillScreen extends AppCompatActivity {
     private Button mFinishBtn;
     private Button mBeginnerBtn;
     private Button mBallerBtn;
+    private String skill;
     public static final String PASS_STRING = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skill_screen);
         findViews();
+        final Player player = getIntent().getExtras().getParcelable(PASS_STRING);
+
         mBeginnerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mBeginnerBtn.getAlpha()!=mFinishBtn.getAlpha()) {
-                    mBeginnerBtn.setAlpha(1f);
-                    mBallerBtn.setAlpha(0.5f);
-                    mFinishBtn.setAlpha(1f);
+                if(!mFinishBtn.isEnabled()) {
                     mFinishBtn.setEnabled(true);
                     mFinishBtn.setText("Finish");
+                    skill = mBeginnerBtn.getText().toString();
                 }
                 else{
-                    mBeginnerBtn.setAlpha(1f);
-                    mBallerBtn.setAlpha(1f);
-                    mFinishBtn.setAlpha(0.5f);
+                    skill="";
                     mFinishBtn.setEnabled(false);
                     mFinishBtn.setText("");
                 }
@@ -42,17 +42,13 @@ public class SkillScreen extends AppCompatActivity {
         mBallerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mBallerBtn.getAlpha()!=mFinishBtn.getAlpha()) {
-                    mBeginnerBtn.setAlpha(0.5f);
-                    mBallerBtn.setAlpha(1f);
-                    mFinishBtn.setAlpha(1f);
+                if(!mFinishBtn.isEnabled()) {
                     mFinishBtn.setEnabled(true);
                     mFinishBtn.setText("Finish");
+                    skill = mBallerBtn.getText().toString();
                 }
                 else{
-                    mBeginnerBtn.setAlpha(1f);
-                    mBallerBtn.setAlpha(1f);
-                    mFinishBtn.setAlpha(0.5f);
+                    skill="";
                     mFinishBtn.setEnabled(false);
                     mFinishBtn.setText("");
                 }
@@ -62,17 +58,10 @@ public class SkillScreen extends AppCompatActivity {
         mFinishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String iAm = "";
-                if(mBeginnerBtn.getAlpha()==1f) {
-                     iAm = mBeginnerBtn.getText().toString();
-                }
-                else if(mBallerBtn.getAlpha()==1f) {
-                     iAm = mBallerBtn.getText().toString();
-                }
-                Intent data = new Intent();
-                data.putExtra(PASS_STRING, iAm);
-                setResult(Activity.RESULT_OK, data);
-
+                player.setSkill(skill);
+                Intent leagueIntent = getIntent();
+                leagueIntent.putExtra(PASS_STRING, player);
+                setResult(Activity.RESULT_OK, leagueIntent);
                 finish();
 
 

@@ -64,39 +64,33 @@
         android:id="@+id/beginner"
         android:layout_width="0dp"
         android:layout_weight="1"
+        android:textColor="@drawable/text_color"
         android:layout_height="wrap_content"
         android:layout_below="@+id/iamatxt"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="8dp"
         android:textSize="15sp"
-        android:background="@drawable/border_style"
+        android:background="@drawable/btn_background"
         android:text="@string/beginner"
         android:textAllCaps="false"/>
     <Button
         android:id="@+id/baller"
         android:layout_width="0dp"
         android:layout_weight="1"
+        android:textColor="@drawable/text_color"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/beginner"
 
         android:layout_marginLeft="8dp"
         android:textSize="15sp"
         android:layout_marginRight="15dp"
-        android:background="@drawable/border_style"
+        android:background="@drawable/btn_background"
         android:text="@string/baller"
         android:textAllCaps="false"/>
 
 </LinearLayout>
 
-    <Button
-        android:id="@+id/finishbg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="13dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/bgColor" />
+
     <Button
         android:id="@+id/finish"
         android:layout_width="match_parent"
@@ -106,9 +100,9 @@
         android:layout_marginLeft="16dp"
         android:textSize="15sp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/border_style"
-        android:alpha="0.3"
+        android:background="@drawable/btn_background"
         android:enabled="false"
+        android:textColor="@drawable/text_color"
         android:textAllCaps="true"
         />
 

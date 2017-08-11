@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="borderColor">#FFFFFF</color>
+    <color name="borderColorW">#FFFFFF</color>
     <color name="bgColor">#73000000</color>
+    <color name="borderColorG"> #9E9E9E</color>
 </resources>

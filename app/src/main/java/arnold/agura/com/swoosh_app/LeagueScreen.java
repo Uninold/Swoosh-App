@@ -11,7 +11,9 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import static android.R.attr.colorPrimary;
+import static android.R.attr.elegantTextHeight;
 import static android.R.attr.value;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class LeagueScreen extends AppCompatActivity {
@@ -19,33 +21,26 @@ public class LeagueScreen extends AppCompatActivity {
     private Button mWomensBtn;
     private Button mCo_edBtn;
     private Button mNext;
-    private Button mNextbg;
     private TextView miAmtxt;
     private TextView miAm;
+    private Player player;
+    private String league="";
     public static final String PASS_STRING = "";
     public static final int REQ_CODE = 1111;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_league_screen);
-
         findViews();
-
         mMensBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if(mMensBtn.getAlpha() != mNext.getAlpha()) {
-                   mMensBtn.setAlpha(1f);
-                   mWomensBtn.setAlpha(0.5f);
-                   mCo_edBtn.setAlpha(0.5f);
-                   mNext.setAlpha(1f);
+               if(league.isEmpty()||league!=mMensBtn.getText().toString()) {
                    mNext.setEnabled(true);
+                   league = mMensBtn.getText().toString();
                }
-               else if(miAm.getText().toString().isEmpty()){
-                   mMensBtn.setAlpha(1f);
-                   mWomensBtn.setAlpha(1f);
-                   mCo_edBtn.setAlpha(1f);
-                   mNext.setAlpha(0.5f);
+               else{
+                   league="";
                    mNext.setEnabled(false);
                }
             }
@@ -53,18 +48,12 @@ public class LeagueScreen extends AppCompatActivity {
         mWomensBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mWomensBtn.getAlpha() != mNext.getAlpha()) {
-                    mMensBtn.setAlpha(0.5f);
-                    mWomensBtn.setAlpha(1f);
-                    mCo_edBtn.setAlpha(0.5f);
-                    mNext.setAlpha(1f);
+                if(league.isEmpty()||league!=mWomensBtn.getText().toString()) {
                     mNext.setEnabled(true);
+                    league = mWomensBtn.getText().toString();
                 }
-                else if(miAm.getText().toString().isEmpty()){
-                    mMensBtn.setAlpha(1f);
-                    mWomensBtn.setAlpha(1f);
-                    mCo_edBtn.setAlpha(1f);
-                    mNext.setAlpha(0.5f);
+                else{
+                    league="";
                     mNext.setEnabled(false);
                 }
             }
@@ -72,21 +61,13 @@ public class LeagueScreen extends AppCompatActivity {
         mCo_edBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mCo_edBtn.getAlpha() != mNext.getAlpha()) {
-                    mMensBtn.setAlpha(0.5f);
-                    mWomensBtn.setAlpha(0.5f);
-                    mCo_edBtn.setAlpha(1f);
-                    mNext.setAlpha(1f);
+                if(league.isEmpty()||league!=mCo_edBtn.getText().toString()) {
                     mNext.setEnabled(true);
-
+                    league = mCo_edBtn.getText().toString();
                 }
-                else if(miAm.getText().toString().isEmpty()){
-                    mMensBtn.setAlpha(1f);
-                    mWomensBtn.setAlpha(1f);
-                    mCo_edBtn.setAlpha(1f);
-                    mNext.setAlpha(0.5f);
+                else{
+                    league="";
                     mNext.setEnabled(false);
-
                 }
             }
         });
@@ -94,7 +75,10 @@ public class LeagueScreen extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                player  = new Player();
+                player.setLeague(league);
                 Intent skillIntent = new Intent(v.getContext(), SkillScreen.class);
+                skillIntent.putExtra(PASS_STRING, player);
                 startActivityForResult(skillIntent, REQ_CODE);
             }
         });
@@ -103,7 +87,6 @@ public class LeagueScreen extends AppCompatActivity {
         mMensBtn = (Button) findViewById(R.id.mens);
         mWomensBtn = (Button) findViewById(R.id.womens);
         mCo_edBtn = (Button) findViewById(R.id.co_ed);
-        mNextbg = (Button) findViewById(R.id.nextbg);
         mNext = (Button) findViewById(R.id.next);
         miAm = (TextView)findViewById(R.id.iamleague);
         miAmtxt = (TextView)findViewById(R.id.iamatxtleague);
@@ -114,19 +97,25 @@ public class LeagueScreen extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
             if (requestCode == REQ_CODE) {
-                String replyMsg = data.getStringExtra(SkillScreen.PASS_STRING);
+                Player playerProf = data.getParcelableExtra(SkillScreen.PASS_STRING);
                 miAmtxt.setVisibility(View.VISIBLE);
                 miAm.setVisibility(View.VISIBLE);
-                miAm.setText(replyMsg);
-                mNextbg.setVisibility(View.GONE);
+                miAm.setText(playerProf.getSkill().toString());
                 mNext.setVisibility(View.GONE);
-                if(mMensBtn.getAlpha()!=1f)
-                mMensBtn.setEnabled(false);
-                if(mWomensBtn.getAlpha()!=1f)
-                mWomensBtn.setEnabled(false);
-                if(mCo_edBtn.getAlpha()!=1f)
-                mCo_edBtn.setEnabled(false);
+                if (!mMensBtn.getText().toString().equals( playerProf.getLeague())) {
+                    mMensBtn.setEnabled(false);
+                }
+                if (!mWomensBtn.getText().toString().equals( playerProf.getLeague())){
+                    mWomensBtn.setEnabled(false);
+                 }
+                if(!mCo_edBtn.getText().toString().equals( playerProf.getLeague())) {
+                    mCo_edBtn.setEnabled(false);
+                }
+
             }
         }
     }
+
+
+
 }

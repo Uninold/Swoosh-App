@@ -43,38 +43,10 @@
         android:layout_margin="15dp"
         android:textSize="15sp"
         android:text="@string/desired_league"/>
-    <Button
-        android:id="@+id/mensbg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/desiredLeaguetxt"
-        android:layout_marginBottom="13dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/bgColor" />
-    <Button
-        android:id="@+id/womensbg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mensbg"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/bgColor"
-        android:textAllCaps="false"/>
 
     <Button
-        android:id="@+id/co_edbg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/womens"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/bgColor"/>
-    <Button
         android:id="@+id/mens"
+        android:textColor="@drawable/text_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/desiredLeaguetxt"
@@ -83,19 +55,21 @@
         android:layout_marginLeft="16dp"
         android:textSize="15sp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/border_style"
+        android:background="@drawable/btn_background"
+
         android:text="@string/mens"
         android:textAllCaps="false"/>
     <Button
         android:id="@+id/womens"
         android:layout_width="match_parent"
+        android:textColor="@drawable/text_color"
         android:layout_height="wrap_content"
         android:layout_below="@+id/mens"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="16dp"
         android:textSize="15sp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/border_style"
+        android:background="@drawable/btn_background"
         android:text="@string/womens"
         android:textAllCaps="false"/>
 
@@ -106,20 +80,13 @@
         android:layout_below="@+id/womens"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="16dp"
+        android:textColor="@drawable/text_color"
         android:textSize="15sp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/border_style"
+        android:background="@drawable/btn_background"
         android:text="@string/co_ed"
         android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/nextbg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="13dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/bgColor" />
+
     <Button
         android:id="@+id/next"
         android:layout_width="match_parent"
@@ -128,9 +95,9 @@
         android:layout_marginBottom="13dp"
         android:layout_marginLeft="16dp"
         android:textSize="15sp"
+        android:textColor="@drawable/text_color"
         android:layout_marginRight="16dp"
-        android:background="@drawable/border_style"
-        android:alpha="0.5"
+        android:background="@drawable/btn_background"
         android:text="@string/next"
         android:enabled="false"
         android:textAllCaps="true" />

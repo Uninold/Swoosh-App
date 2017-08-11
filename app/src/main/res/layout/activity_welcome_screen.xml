@@ -9,14 +9,6 @@
     tools:context="arnold.agura.com.swoosh_app.WelcomeScreen">
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="13dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/bgColor" />
-    <Button
         android:id="@+id/startBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +17,8 @@
         android:layout_marginLeft="16dp"
         android:textSize="15sp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/border_style"
+        android:background="@drawable/btn_background"
+        android:textColor="@drawable/text_color"
         android:text="@string/get_started"
         android:textAllCaps="true" />
 
